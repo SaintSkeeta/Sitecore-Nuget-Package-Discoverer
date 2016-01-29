@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NugetPackageResolver", "NugetPackageDiscoverer\NugetPackageResolver.csproj", "{54A086B6-6B8B-406F-A19A-39F4ADA55262}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NugetPackageResolver", "NugetPackageResolver\NugetPackageResolver.csproj", "{54A086B6-6B8B-406F-A19A-39F4ADA55262}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NugetPackageResolver.Interfaces", "NugetPackageResolver.Interfaces\NugetPackageResolver.Interfaces.csproj", "{A2AECBD1-2858-4352-81D6-9D8BAC9D2DF8}"
 EndProject
