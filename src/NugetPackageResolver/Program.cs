@@ -34,15 +34,15 @@ namespace NugetPackageResolver
             _resultsFormatter = new ResultsFormatter();
 
             // Test if input arguments were supplied:
-            if (args.Length != 2)
+            if (args.Length != 2 && args.Length != 3)
             {
-                System.Console.WriteLine("Please enter a path to the bin directory as the 1st argument, and the path you want to generate the config for as the 2nd argument.");
+                System.Console.WriteLine("Please enter a path to the Sitecore zip file as the 1st argument, and the path you want to generate the config for as the 2nd argument. 3rd argument is optional, as the name of a single DLL you want to check.");
                 return 1;
             }
 
             string binDirectoryPath = ExtractBinDirectoryFromZip(args.Skip(0).First());
 
-            return Process(binDirectoryPath, args.Skip(1).First());
+            return Process(binDirectoryPath, args.Skip(1).First(), (args.Length == 3) ? args.Skip(2).First() : "");
         }
 
         #region ExtractZip
@@ -99,9 +99,8 @@ namespace NugetPackageResolver
         }
         #endregion
 
-        private static int Process(string binDirectoryPath, string configSaveFilename)
+        private static int Process(string binDirectoryPath, string configSaveFilename, string filter)
         {
-            string filter = "*";
 
             List<NugetPackageInfo> discoveredNugetPackages = new List<NugetPackageInfo>();
             List<DLLIssueInfo> issues = new List<DLLIssueInfo>();

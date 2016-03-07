@@ -18,10 +18,11 @@ namespace NugetPackageResolver.Implementations
         {
             System.Console.WriteLine(binDirectoryPath);
             // find all DLLs in bin folder that match the given filter
-            //string pattern = "^(?!(Sitecore)).*(.dll)$";
+            string notSitecorePattern = "^(?!(Sitecore)).*(.dll)$";
             var matches = Directory.GetFiles(binDirectoryPath)
                             .Select(path => Path.GetFileName(path))
-                            .Where(path => Regex.Match(path, "^(?!(Sitecore)).*(.dll)$", RegexOptions.IgnoreCase).Success);
+                            .Where(path => Regex.Match(path, (!String.IsNullOrWhiteSpace(pattern) ? pattern : notSitecorePattern), 
+                                                       RegexOptions.IgnoreCase).Success);
 
             var dllVersionList = new List<VersionInfo>();
             // find the version numbers of these DLLs
